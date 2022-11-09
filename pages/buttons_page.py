@@ -5,7 +5,7 @@ class Buttons:
 
     def __init__(self, page: Page):
         self.page = page
-        self.doubleClickBtn = self.page.locator('[id="doubleClickBtn"]')
+        self.doubleClickBtn = self.page.locator('button[id="doubleClickBtn"]')
         self.rightClickBtn = self.page.locator('button[id="rightClickBtn"]')
         self.clickMeBtn = self.page.locator('//button[text()="Click Me"]')
 

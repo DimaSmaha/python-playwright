@@ -1,5 +1,4 @@
 import pytest
-from playwright.async_api import Page
 
 from pages.buttons_page import Buttons
 
@@ -19,7 +18,7 @@ class TestButtons:
         :param test_setup: setting up the browser and page objects
         :return: None
         """
-        self.buttons.doubleClickBtn()
+        self.buttons.double_click_btn()
         self.buttons.checkDoubleClickNotificationShown()
 
     def test_rmb_click_button(self, test_setup):
