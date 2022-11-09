@@ -10,7 +10,6 @@ class TestButtons:
         self.page = page
         self.page.set_viewport_size(viewport_size={'width': 1280, 'height': 800})
         self.buttons = Buttons(self.page)
-
         self.page.goto('https://demoqa.com/buttons')
 
     def test_double_click_button(self, test_setup):
