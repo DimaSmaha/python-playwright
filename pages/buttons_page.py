@@ -4,32 +4,34 @@ from playwright.sync_api import Page
 class Buttons:
 
     def __init__(self, page: Page):
+        # double underscore for locators be private
+
         self.page = page
-        self.doubleClickBtn = self.page.locator('button[id="doubleClickBtn"]')
-        self.rightClickBtn = self.page.locator('button[id="rightClickBtn"]')
-        self.clickMeBtn = self.page.locator('//button[text()="Click Me"]')
+        self.__double_click_btn = self.page.locator('button[id="doubleClickBtn"]')
+        self.__right_click_btn = self.page.locator('button[id="rightClickBtn"]')
+        self.__click_me_btn = self.page.locator('//button[text()="Click Me"]')
 
-        self.doubleClickBtnNotification = self.page.locator('[id="doubleClickMessage"]')
-        self.rightClickBtnNotification = self.page.locator('p[id="rightClickMessage"]')
-        self.clickMeBtnNotification = self.page.locator('p[id="dynamicClickMessage"]')
+        self.__double_click_btn_notification = self.page.locator('[id="doubleClickMessage"]')
+        self.__right_click_btn_notification = self.page.locator('p[id="rightClickMessage"]')
+        self.__click_me_btn_notification = self.page.locator('p[id="dynamicClickMessage"]')
 
-    def doubleClickBtn(self) -> None:
-        self.doubleClickBtn.click(click_count=2)
+    def click_double_click_btn(self) -> None:
+        self.__double_click_btn.click(click_count=2)
 
-    def checkDoubleClickNotificationShown(self) -> None:
-        self.doubleClickBtnNotification.wait_for(state='visible')
-        assert self.doubleClickBtnNotification.text_content() == 'You have done a double click'
+    def check_double_click_notification_shown(self) -> None:
+        self.__double_click_btn_notification.wait_for(state='visible')
+        assert self.__double_click_btn_notification.text_content() == 'You have done a double click'
 
-    def rightClickBtn(self) -> None:
-        self.rightClickBtn.click(button="right")
+    def click_right_click_btn(self) -> None:
+        self.__right_click_btn.click(button="right")
 
-    def checkRightClickNotificationShown(self) -> None:
-        self.rightClickBtnNotification.wait_for(state='visible')
-        assert self.rightClickBtnNotification.text_content() == 'You have done a right click'
+    def check_right_click_notification_shown(self) -> None:
+        self.__right_click_btn_notification.wait_for(state='visible')
+        assert self.__right_click_btn_notification.text_content() == 'You have done a right click'
 
     def clickBtn(self) -> None:
-        self.clickMeBtn.click()
+        self.__click_me_btn.click()
 
-    def checkClickNotificationShown(self) -> None:
-        self.clickMeBtnNotification.wait_for(state='visible')
-        assert self.clickMeBtnNotification.text_content() == 'You have done a dynamic click'
+    def check_dynamic_click_notification_shown(self) -> None:
+        self.__click_me_btn_notification.wait_for(state='visible')
+        assert self.__click_me_btn_notification.text_content() == 'You have done a dynamic click'
